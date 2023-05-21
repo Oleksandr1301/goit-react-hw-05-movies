@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-
-import { getQuery } from '../components/fetchFilms';
-import MoviesList from '../components/MoviesList';
+import { Form, Field, ButtonSearch } from './Movies.styled';
+import { getQuery } from '../../components/fetchFilms';
+import MoviesList from '../../components/MoviesList/MoviesList';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -43,8 +43,8 @@ const Movies = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input
+      <Form onSubmit={handleSubmit}>
+        <Field
           type="text"
           name="query"
           value={inputSearch}
@@ -52,8 +52,8 @@ const Movies = () => {
           placeholder="Enter movie name"
         />
 
-        <button type="submit">Search</button>
-      </form>
+        <ButtonSearch type="submit">Search</ButtonSearch>
+      </Form>
 
       {loading && (
         <div>
